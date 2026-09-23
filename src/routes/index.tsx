@@ -28,49 +28,49 @@ const countries = ["USA", "UK", "CA", "AU"];
 function Index() {
   return (
     <main className="min-h-screen bg-background font-sans text-foreground">
-      <header className="relative flex h-36 items-center bg-primary px-6 sm:h-40 sm:px-10">
+      <header className="relative flex h-24 items-center bg-primary px-5 sm:h-32 sm:px-10 lg:h-36">
         <img
           src={doordashLogo.url}
           alt="DoorDash"
-          className="h-auto w-52 brightness-0 invert sm:w-64"
+          className="h-auto w-44 brightness-0 invert sm:w-56 lg:w-60"
         />
-        <span className="absolute right-8 top-1/2 size-8 -translate-y-1/2 rounded-full bg-primary-foreground/20 sm:right-14" aria-hidden="true" />
+        <span className="absolute right-6 top-1/2 size-7 -translate-y-1/2 rounded-full bg-primary-foreground/20 sm:right-12 sm:size-8" aria-hidden="true" />
       </header>
 
-      <div className="mx-auto max-w-4xl px-5 pb-24 pt-20 sm:px-8 sm:pt-28">
+      <div className="mx-auto max-w-3xl px-5 pb-16 pt-12 sm:px-8 sm:pb-24 sm:pt-20 lg:pt-24">
         <section className="text-center">
-          <h1 className="mx-auto max-w-3xl text-4xl font-extrabold leading-[1.08] sm:text-6xl">
+          <h1 className="mx-auto max-w-3xl text-[2rem] font-extrabold leading-[1.12] sm:text-5xl lg:text-[3.5rem]">
             Save Up To 90% on DoorDash!
           </h1>
 
-          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-7">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:grid-cols-4 sm:gap-5">
             {countries.map((country) => (
-              <div key={country} className="flex h-16 items-center justify-center gap-2 rounded-full bg-secondary px-5 text-xl font-extrabold text-primary">
-                <MapPin className="size-6 shrink-0" strokeWidth={2.5} aria-hidden="true" />
+              <div key={country} className="flex h-12 items-center justify-center gap-2 rounded-full bg-secondary px-4 text-base font-extrabold text-primary sm:h-14 sm:text-lg">
+                <MapPin className="size-5 shrink-0 sm:size-6" strokeWidth={2.5} aria-hidden="true" />
                 <span>{country}</span>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="mt-24 sm:mt-32">
-          <h2 className="text-center text-4xl font-black uppercase sm:text-5xl">How to qualify</h2>
+        <section className="mt-16 sm:mt-24">
+          <h2 className="text-center text-[1.75rem] font-black uppercase sm:text-4xl lg:text-[2.75rem]">How to qualify</h2>
 
-          <ol className="mt-16 space-y-7 sm:mt-20 sm:space-y-10">
+          <ol className="mt-10 space-y-4 sm:mt-14 sm:space-y-6">
             {steps.map((step, index) => (
-              <li key={step} className="flex min-h-44 items-center gap-6 rounded-lg border border-border bg-card px-7 py-8 shadow-card sm:gap-10 sm:px-12">
-                <span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-primary text-2xl font-extrabold text-primary-foreground">
+              <li key={step} className="grid min-h-28 grid-cols-[auto_minmax(0,1fr)] items-center gap-4 rounded-lg border border-border bg-card px-5 py-5 shadow-card sm:min-h-36 sm:gap-7 sm:px-9 sm:py-7">
+                <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-extrabold text-primary-foreground sm:size-14 sm:text-xl">
                   {index + 1}
                 </span>
-                <span className="text-xl font-bold leading-snug text-card-foreground sm:text-3xl">{step}</span>
+                <span className="min-w-0 text-base font-bold leading-snug text-card-foreground sm:text-2xl">{step}</span>
               </li>
             ))}
           </ol>
 
-          <div className="mt-28 flex justify-center sm:mt-32">
+          <div className="mt-16 flex justify-center sm:mt-20">
             <a
               href="https://linkthem.net/aff_c?offer_id=1164&aff_id=16139"
-              className="inline-flex min-h-20 w-full max-w-md items-center justify-center rounded-full bg-primary px-8 text-2xl font-black uppercase text-primary-foreground shadow-button transition-transform hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring"
+              className="inline-flex min-h-14 w-full max-w-sm items-center justify-center rounded-full bg-primary px-8 text-lg font-black uppercase text-primary-foreground shadow-button transition-transform hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring sm:min-h-16 sm:max-w-md sm:text-xl"
             >
               Apply Now
             </a>
