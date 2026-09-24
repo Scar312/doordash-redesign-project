@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MapPin } from "lucide-react";
-import doordashLogo from "../assets/doordash-logo.png.asset.json";
+import doordashLogo from "../assets/doordash-logo-cropped.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
