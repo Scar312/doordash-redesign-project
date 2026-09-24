@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MapPin } from "lucide-react";
-import doordashLogo from "../assets/doordash-logo.png.asset.json";
+import doordashLogo from "../assets/doordash-logo-cropped.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,55 +28,63 @@ const countries = ["USA", "UK", "CA", "AU"];
 function Index() {
   return (
     <main className="min-h-screen bg-background font-sans text-foreground">
-      <header className="relative flex h-24 items-center bg-primary px-5 sm:h-32 sm:px-10 lg:h-36">
-        <img
-          src={doordashLogo.url}
-          alt="DoorDash"
-          className="h-auto w-44 brightness-0 invert sm:w-56 lg:w-60"
-        />
-        <span className="absolute right-6 top-1/2 size-7 -translate-y-1/2 rounded-full bg-primary-foreground/20 sm:right-12 sm:size-8" aria-hidden="true" />
+      <header className="relative flex flex-col overflow-hidden bg-primary py-3 sm:py-6">
+        <div className="relative z-10 px-4 py-2 sm:p-6">
+          <img
+            src={doordashLogo.url}
+            alt="DoorDash"
+            className="h-8 w-auto object-contain brightness-0 invert sm:h-10"
+          />
+        </div>
+        <span className="absolute right-10 top-10 size-4 rounded-full bg-primary-foreground/20" aria-hidden="true" />
+        <span className="absolute bottom-5 right-20 size-6 rounded-full bg-primary-foreground/15" aria-hidden="true" />
+        <span className="absolute left-10 top-1/3 size-3 rounded-full bg-primary-foreground/25" aria-hidden="true" />
       </header>
 
-      <div className="mx-auto max-w-3xl px-5 pb-16 pt-12 sm:px-8 sm:pb-24 sm:pt-20 lg:pt-24">
-        <section className="text-center">
-          <h1 className="mx-auto max-w-3xl text-[2rem] font-extrabold leading-[1.12] sm:text-5xl lg:text-[3.5rem]">
+      <section className="bg-background px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-16 text-center">
+          <h1 className="mb-4 text-4xl font-black leading-tight sm:text-5xl">
             Save Up To 90% on DoorDash!
           </h1>
 
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:grid-cols-4 sm:gap-5">
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
             {countries.map((country) => (
-              <div key={country} className="flex h-12 items-center justify-center gap-2 rounded-full bg-secondary px-4 text-base font-extrabold text-primary sm:h-14 sm:text-lg">
-                <MapPin className="size-5 shrink-0 sm:size-6" strokeWidth={2.5} aria-hidden="true" />
+              <div key={country} className="flex items-center gap-1 rounded-full bg-secondary px-4 py-2 text-sm font-bold text-primary">
+                <MapPin className="size-4 shrink-0" strokeWidth={2.5} aria-hidden="true" />
                 <span>{country}</span>
               </div>
             ))}
           </div>
-        </section>
+          </div>
 
-        <section className="mt-16 sm:mt-24">
-          <h2 className="text-center text-[1.75rem] font-black uppercase sm:text-4xl lg:text-[2.75rem]">How to qualify</h2>
+          <div className="mb-12 text-center">
+          <h2 className="mb-12 text-4xl font-black uppercase sm:text-5xl">How to qualify</h2>
 
-          <ol className="mt-10 space-y-4 sm:mt-14 sm:space-y-6">
+          <ol className="mx-auto max-w-2xl space-y-8">
             {steps.map((step, index) => (
-              <li key={step} className="grid min-h-28 grid-cols-[auto_minmax(0,1fr)] items-center gap-4 rounded-lg border border-border bg-card px-5 py-5 shadow-card sm:min-h-36 sm:gap-7 sm:px-9 sm:py-7">
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-extrabold text-primary-foreground sm:size-14 sm:text-xl">
+              <li key={step} className="flex items-start gap-4 rounded-xl border border-border bg-card p-6 text-left shadow-card transition duration-300 hover:-translate-y-0.5 hover:shadow-md">
+                <span className="mt-1 flex size-8 shrink-0 items-center justify-center rounded-full bg-primary text-base font-bold text-primary-foreground">
                   {index + 1}
                 </span>
-                <span className="min-w-0 text-base font-bold leading-snug text-card-foreground sm:text-2xl">{step}</span>
+                <span className="min-w-0 text-lg font-semibold leading-relaxed text-card-foreground sm:text-xl">{step}</span>
               </li>
             ))}
           </ol>
+          </div>
+        </div>
+      </section>
 
-          <div className="mt-16 flex justify-center sm:mt-20">
+      <section className="bg-background px-4 pb-16">
+        <div className="mx-auto max-w-4xl text-center">
             <a
               href="https://linkthem.net/aff_c?offer_id=1164&aff_id=16139"
-              className="inline-flex min-h-14 w-full max-w-sm items-center justify-center rounded-full bg-primary px-8 text-lg font-black uppercase text-primary-foreground shadow-button transition-transform hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring sm:min-h-16 sm:max-w-md sm:text-xl"
+              className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-primary px-12 py-3 text-xl font-bold uppercase text-primary-foreground shadow-button transition duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring"
             >
               Apply Now
             </a>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
   );
 }
