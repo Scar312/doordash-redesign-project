@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MapPin } from "lucide-react";
-import doordashLogo from "../assets/doordash-logo-cropped.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,7 +30,7 @@ function Index() {
       <header className="relative flex flex-col overflow-hidden bg-primary py-3 sm:py-6">
         <div className="relative z-10 px-4 py-2 sm:p-6">
           <img
-            src={doordashLogo.url}
+            src="/doordash-logo.png"
             alt="DoorDash"
             className="h-8 w-auto object-contain brightness-0 invert sm:h-10"
           />
