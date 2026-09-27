@@ -77,7 +77,7 @@ function Index() {
       <section className="bg-background px-4 pb-16">
         <div className="mx-auto max-w-4xl text-center">
             <a
-              href="https://linkthem.net/aff_c?offer_id=1164&aff_id=16139"
+              href="https://linkthem.net/aff_c?offer_id=3463&aff_id=16139"
               className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-primary px-12 py-3 text-xl font-bold uppercase text-primary-foreground shadow-button transition duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring"
             >
               Apply Now
