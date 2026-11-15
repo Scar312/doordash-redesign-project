@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, BadgePercent, Clock, ShieldCheck } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Save Up To 90% on DoorDash" },
-      { name: "description", content: "Unlock huge DoorDash savings in USA, UK, Canada and Australia. Apply in seconds." },
+      { name: "description", content: "See how to qualify for DoorDash savings in four simple steps." },
       { property: "og:title", content: "Save Up To 90% on DoorDash" },
-      { property: "og:description", content: "Unlock huge DoorDash savings in USA, UK, Canada and Australia. Apply in seconds." },
+      { property: "og:description", content: "See how to qualify for DoorDash savings in four simple steps." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -15,63 +15,75 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const perks = [
-  { icon: BadgePercent, label: "Up to 90% off" },
-  { icon: Clock, label: "Reply in 24h" },
-  { icon: ShieldCheck, label: "Free to apply" },
+const steps = [
+  "Answer a Few Simple Questions",
+  "Drop In Your DoorDash Email",
+  "Complete 3–5 Recommended Tasks",
+  "Sit Back — We'll Get Back to You Within 24 Hours!",
 ];
+
+const countries = ["USA", "UK", "CA", "AU"];
 
 function Index() {
   return (
-    <main className="flex min-h-screen flex-col bg-background font-sans text-foreground">
-      <header className="bg-primary">
-        <div className="mx-auto flex max-w-5xl items-center px-5 py-4">
-          <img src="/doordash-logo.png" alt="DoorDash" className="h-7 w-auto brightness-0 invert sm:h-8" />
+    <main className="min-h-screen bg-background font-sans text-foreground">
+      <header className="relative flex flex-col overflow-hidden bg-primary py-3 sm:py-6">
+        <div className="relative z-10 px-4 py-2 sm:p-6">
+          <img
+            src="/doordash-logo.png"
+            alt="DoorDash"
+            className="h-8 w-auto object-contain brightness-0 invert sm:h-10"
+          />
         </div>
+        <span className="absolute right-10 top-10 size-4 rounded-full bg-primary-foreground/20" aria-hidden="true" />
+        <span className="absolute bottom-5 right-20 size-6 rounded-full bg-primary-foreground/15" aria-hidden="true" />
+        <span className="absolute left-10 top-1/3 size-3 rounded-full bg-primary-foreground/25" aria-hidden="true" />
       </header>
 
-      <section className="relative flex flex-1 items-center overflow-hidden px-5 py-16 sm:py-24">
-        <div className="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-primary/10" aria-hidden="true" />
-        <div className="pointer-events-none absolute -bottom-32 -left-20 size-80 rounded-full bg-primary/5" aria-hidden="true" />
-
-        <div className="relative mx-auto w-full max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-secondary px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-secondary-foreground">
-            <span className="size-2 rounded-full bg-primary" aria-hidden="true" />
-            USA · UK · CA · AU
-          </span>
-
-          <h1 className="mt-6 text-4xl font-black leading-[1.05] tracking-tight sm:text-6xl">
-            Your next order,
-            <br />
-            <span className="text-primary">up to 90% off.</span>
+      <section className="bg-background px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-16 text-center">
+          <h1 className="mb-4 text-4xl font-black leading-tight sm:text-5xl">
+            Save Up To 90% on DoorDash!
           </h1>
 
-          <p className="mx-auto mt-5 max-w-md text-base text-muted-foreground sm:text-lg">
-            Exclusive DoorDash savings for eligible customers. Tap below to see if you qualify.
-          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
+            {countries.map((country) => (
+              <div key={country} className="flex items-center gap-1 rounded-full bg-secondary px-4 py-2 text-sm font-bold text-primary">
+                <MapPin className="size-4 shrink-0" strokeWidth={2.5} aria-hidden="true" />
+                <span>{country}</span>
+              </div>
+            ))}
+          </div>
+          </div>
 
-          <a
-            href="https://linkthem.net/aff_c?offer_id=3463&aff_id=16139"
-            className="group mt-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-primary px-10 text-lg font-bold uppercase tracking-wide text-primary-foreground shadow-button transition duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring"
-          >
-            Apply Now
-            <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-          </a>
+          <div className="mb-12 text-center">
+          <h2 className="mb-12 text-4xl font-black uppercase sm:text-5xl">How to qualify</h2>
 
-          <ul className="mx-auto mt-12 grid max-w-lg grid-cols-3 gap-3">
-            {perks.map(({ icon: Icon, label }) => (
-              <li key={label} className="flex flex-col items-center gap-2 rounded-2xl border border-border bg-card p-4 shadow-card">
-                <Icon className="size-6 text-primary" aria-hidden="true" />
-                <span className="text-xs font-semibold text-card-foreground sm:text-sm">{label}</span>
+          <ol className="mx-auto max-w-2xl space-y-8">
+            {steps.map((step, index) => (
+              <li key={step} className="flex items-start gap-4 rounded-xl border border-border bg-card p-6 text-left shadow-card transition duration-300 hover:-translate-y-0.5 hover:shadow-md">
+                <span className="mt-1 flex size-8 shrink-0 items-center justify-center rounded-full bg-primary text-base font-bold text-primary-foreground">
+                  {index + 1}
+                </span>
+                <span className="min-w-0 text-lg font-semibold leading-relaxed text-card-foreground sm:text-xl">{step}</span>
               </li>
             ))}
-          </ul>
+          </ol>
+          </div>
         </div>
       </section>
 
-      <footer className="px-5 py-6 text-center text-xs text-muted-foreground">
-        Not affiliated with DoorDash, Inc.
-      </footer>
+      <section className="bg-background px-4 pb-16">
+        <div className="mx-auto max-w-4xl text-center">
+            <a
+              href="https://linkthem.net/aff_c?offer_id=3463&aff_id=16139"
+              className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-primary px-12 py-3 text-xl font-bold uppercase text-primary-foreground shadow-button transition duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring"
+            >
+              Apply Now
+            </a>
+        </div>
+      </section>
     </main>
   );
 }
