@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Save Up To 90% on DoorDash" },
-      { name: "description", content: "See how to qualify for DoorDash savings in four simple steps." },
-      { property: "og:title", content: "Save Up To 90% on DoorDash" },
-      { property: "og:description", content: "See how to qualify for DoorDash savings in four simple steps." },
+      { title: "Save up to $100 on DoorDash this Black Friday!" },
+      { name: "description", content: "See how to qualify for a $100 DoorDash credit in four simple steps." },
+      { property: "og:title", content: "Save up to $100 on DoorDash this Black Friday!" },
+      { property: "og:description", content: "See how to qualify for a $100 DoorDash credit in four simple steps." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -20,7 +20,7 @@ const steps = [
   "Answer a Few Simple Questions",
   "Drop In Your DoorDash Email",
   "Complete 5–7 Recommended Tasks",
-  "Sit Back — We'll Get Back to You Within 24 Hours!",
+  "Sit Back — Your $100 DoorDash credit sent to your email!",
 ];
 
 const countries = ["USA", "UK", "CA", "AU"];
@@ -39,7 +39,7 @@ function Index() {
         <div className="mx-auto max-w-5xl">
           <p className="mb-4 text-sm font-bold uppercase text-primary">A little more to enjoy</p>
           <h1 className="mx-auto max-w-4xl text-4xl font-black leading-tight text-foreground sm:text-5xl lg:text-6xl">
-            Save Up To 90% on DoorDash!
+            Save up to $100 on DoorDash this Black Friday!
           </h1>
           <div className="mt-7 flex flex-wrap justify-center gap-2.5 sm:gap-3">
             {countries.map((country) => (
@@ -71,26 +71,33 @@ function Index() {
                 <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-black text-primary">
                   0{index + 1}
                 </span>
-                <div className="min-w-0 flex-1">
-                  <span className="block pt-1 text-base font-semibold leading-snug text-card-foreground sm:pt-0 sm:text-lg">
-                    {step}
-                  </span>
-                  {index === 3 && (
-                    <Button
-                      asChild
-                      size="lg"
-                      className="mt-5 h-12 w-full rounded-lg bg-primary px-5 text-base font-black uppercase text-primary-foreground shadow-button transition-transform hover:scale-[1.02] hover:bg-primary/90 sm:text-lg"
-                    >
-                      <a href={offerUrl} aria-label="Start now with DoorDash savings">
-                        Start Now
-                        <ArrowUpRight className="size-5" aria-hidden="true" />
-                      </a>
-                    </Button>
-                  )}
-                </div>
+                <span className="min-w-0 flex-1 pt-1 text-base font-semibold leading-snug text-card-foreground sm:pt-0 sm:text-lg">
+                  {step}
+                </span>
               </li>
             ))}
           </ol>
+          <div className="mt-7 text-center">
+            <Button
+              asChild
+              size="lg"
+              className="h-12 w-full max-w-sm rounded-lg bg-primary px-5 text-base font-black uppercase text-primary-foreground shadow-button transition-transform hover:scale-[1.02] hover:bg-primary/90 sm:text-lg"
+            >
+              <a href={offerUrl} aria-label="Start now with DoorDash savings">
+                Start Now
+                <ArrowUpRight className="size-5" aria-hidden="true" />
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-primary px-5 py-10 text-center text-primary-foreground sm:px-8 sm:py-12">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-2xl font-black sm:text-3xl">Ready to get started?</h2>
+          <p className="mt-2 text-sm text-primary-foreground/85 sm:text-base">
+            Take the first step toward your DoorDash savings.
+          </p>
         </div>
       </section>
     </main>
