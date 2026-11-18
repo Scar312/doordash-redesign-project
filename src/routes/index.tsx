@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
 const steps = [
   "Answer a Few Simple Questions",
   "Drop In Your DoorDash Email",
-  "Complete 3–5 Recommended Tasks",
+  "Complete 5–7 Recommended Tasks",
   "Sit Back — We'll Get Back to You Within 24 Hours!",
 ];
 
@@ -71,31 +71,26 @@ function Index() {
                 <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-black text-primary">
                   0{index + 1}
                 </span>
-                <span className="pt-1 text-base font-semibold leading-snug text-card-foreground sm:pt-0 sm:text-lg">
-                  {step}
-                </span>
+                <div className="min-w-0 flex-1">
+                  <span className="block pt-1 text-base font-semibold leading-snug text-card-foreground sm:pt-0 sm:text-lg">
+                    {step}
+                  </span>
+                  {index === 3 && (
+                    <Button
+                      asChild
+                      size="lg"
+                      className="mt-5 h-12 w-full rounded-lg bg-primary px-5 text-base font-black uppercase text-primary-foreground shadow-button transition-transform hover:scale-[1.02] hover:bg-primary/90 sm:text-lg"
+                    >
+                      <a href={offerUrl} aria-label="Start now with DoorDash savings">
+                        Start Now
+                        <ArrowUpRight className="size-5" aria-hidden="true" />
+                      </a>
+                    </Button>
+                  )}
+                </div>
               </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      <section className="bg-primary px-5 py-10 text-center text-primary-foreground sm:px-8 sm:py-12">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="text-2xl font-black sm:text-3xl">Ready to get started?</h2>
-          <p className="mt-2 text-sm text-primary-foreground/85 sm:text-base">
-            Take the first step toward your DoorDash savings.
-          </p>
-          <Button
-            asChild
-            size="lg"
-            className="mt-6 h-14 min-w-64 rounded-lg bg-primary-foreground px-8 text-lg font-black uppercase text-primary shadow-button transition-transform hover:scale-[1.02] hover:bg-primary-foreground/90 sm:h-16 sm:min-w-80 sm:text-xl"
-          >
-            <a href={offerUrl} aria-label="Apply now for DoorDash savings">
-              Apply Now
-              <ArrowUpRight className="size-5 sm:size-6" aria-hidden="true" />
-            </a>
-          </Button>
         </div>
       </section>
     </main>
